@@ -13,7 +13,7 @@ import java.util.List;
 import androidx.multidex.MultiDexApplication;
 
 import com.facebook.react.bridge.JSIModulePackage; // <- add
-// import com.swmansion.reanimated.ReanimatedJSIModulePackage; // <- add
+import com.swmansion.reanimated.ReanimatedJSIModulePackage; // <- add
 
 import android.os.Bundle;
 
@@ -42,10 +42,10 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
           return "index";
         }
 
-        // @Override
-        // protected JSIModulePackage getJSIModulePackage() {
-        //   return new ReanimatedJSIModulePackage(); // <- add
-        // }
+        @Override
+        protected JSIModulePackage getJSIModulePackage() {
+          return new ReanimatedJSIModulePackage(); // <- add
+        }
 
         // @Override
         // protected void onCreate(Bundle savedInstanceState) {

@@ -11,7 +11,7 @@ import LoadingScreen from './src/generics/components/LoadingScreen';
 import {useRequestContext} from './src/context/RequestContext';
 import AlertScreen from './src/generics/components/AlertScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-// import {createDrawerNavigator} from '@react-navigation/drawer';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import 'react-native-gesture-handler';
 
 FontAwesome.loadFont();
@@ -21,13 +21,13 @@ Feather.loadFont();
 Ionicons.loadFont();
 
 const Stack = createNativeStackNavigator();
-// const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator();
 
-// const DrawerNavigation = () => (
-//   <Drawer.Navigator initialRouteName={SceneNames.Home}>
-//     <Drawer.Screen name={SceneNames.Home} component={HomeScreen} />
-//   </Drawer.Navigator>
-// );
+const DrawerNavigation = () => (
+  <Drawer.Navigator initialRouteName={SceneNames.Home}>
+    <Drawer.Screen name={SceneNames.Home} component={HomeScreen} />
+  </Drawer.Navigator>
+);
 
 const App = () => {
   const [{loading, error}, {errorHandler}] = useRequestContext();
@@ -40,7 +40,7 @@ const App = () => {
             headerShown: false,
           }}
           initialRouteName={SceneNames.Home}>
-          <Stack.Screen name={SceneNames.Home} component={HomeScreen} />
+          <Stack.Screen name={SceneNames.Home} component={DrawerNavigation} />
         </Stack.Navigator>
       </NavigationContainer>
       {/* <LoadingScreen isVisible={loading} />
